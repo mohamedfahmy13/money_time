@@ -10,8 +10,10 @@ workflows:
     scripts:
       - name: Packages
         script: flutter pub get
-      - name: Create empty .env
-        script: touch .env
+      # flutter_dotenv throws EmptyEnvFileError on an empty file, which
+      # kills main() before runApp and leaves the white splash on screen.
+      - name: Create .env
+        script: echo "API_BASE_URL=${API_BASE_URL:-https://moneytime.findosystem.com/v1}" > .env
       - name: Pods
         script: |
           cd ios
