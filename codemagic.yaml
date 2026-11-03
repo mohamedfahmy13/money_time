@@ -10,6 +10,8 @@ workflows:
     scripts:
       - name: Packages
         script: flutter pub get
+      - name: Create empty .env
+        script: touch .env
       - name: Pods
         script: |
           cd ios

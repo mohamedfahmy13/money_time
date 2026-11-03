@@ -46,3 +46,4 @@ app.*.map.json
 
 # Environment
 .env
+android/gradle/wrapper/gradle-wrapper.properties
